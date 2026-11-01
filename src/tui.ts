@@ -123,7 +123,7 @@ export default Plugin.define({
             log(`skip background session=${sessionID}`);
             return;
           }
-          void speakTurn(sessionID, "auto", "Ready for your input.");
+          void speakTurn(sessionID, "auto", "");
         })
         .catch(() => {});
     };
