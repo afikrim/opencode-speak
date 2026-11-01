@@ -33,19 +33,16 @@ Background sessions stay silent; manual read (`leader+s`) works anywhere.
 
 ## Install
 
-```sh
-cd /Users/azizf/Development/opencode-speak
-npm install
-```
-
-Project-local (`opencode.jsonc` in your repo):
+Requires: macOS, OpenCode V2, an OpenCode Go subscription connected
+(`/connect` → OpenCode Go), and `edge-tts` for the default voice
+(`uv tool install edge-tts`).
 
 ```jsonc
 {
   "$schema": "https://opencode.ai/config.json",
   "plugins": [
     {
-      "package": "/Users/azizf/Development/opencode-speak",
+      "package": "github:afikrim/opencode-speak",
       "options": {
         "enabled": false,
         "engine": "edge",
@@ -53,13 +50,25 @@ Project-local (`opencode.jsonc` in your repo):
         "sayVoice": "Samantha",
         "normalizeProvider": "opencode-go",
         "normalizeModel": "deepseek-v4.1-flash",
-        "maxChars": 800,
-        "debugLog": true
+        "maxChars": 800
       }
     }
   ]
 }
 ```
+
+Add it to global `~/.config/opencode/opencode.jsonc` or project-local
+`opencode.jsonc`. Config hot-reloads; the TUI part loads at TUI startup.
+
+From source:
+
+```sh
+git clone https://github.com/afikrim/opencode-speak
+cd opencode-speak
+npm install
+```
+
+then point `package` at the checkout path instead of `github:...`.
 
 Set `"enabled": true` to have speaking on from the start (default is off).
 Set `"debugLog": true` to append diagnostics to
