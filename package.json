@@ -1,0 +1,19 @@
+{
+  "name": "opencode-speak",
+  "version": "0.1.0",
+  "description": "Free text-to-speech for OpenCode: auto-speaks assistant replies via macOS say, normalized by your OpenCode Go model.",
+  "type": "module",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/index.ts",
+    "./tui": "./src/tui.ts",
+    "./rpc": "./src/rpc.ts"
+  },
+  "files": ["src", "README.md", "PRD.md"],
+  "dependencies": {
+    "@opencode/plugin": "latest"
+  },
+  "devDependencies": {
+    "typescript": "^5.6.0"
+  }
+}
